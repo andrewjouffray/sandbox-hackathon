@@ -19,4 +19,4 @@ ENV FLASK_ENV=development
 ENV FLASK_APP=app/main.py
 
 # Run the Flask app
-CMD ["gunicorn", "--reload", "-w", "4", "-b", "0.0.0.0:5000", "app.main:app"]
+CMD ["gunicorn", "--reload", "-w", "2", "-b", "0.0.0.0:5000", "app.main:app"]
