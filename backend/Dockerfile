@@ -14,5 +14,9 @@ COPY . .
 # Expose the port
 EXPOSE 5000
 
+# Set environment variables for development mode
+ENV FLASK_ENV=development
+ENV FLASK_APP=app/main.py
+
 # Run the Flask app
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "--reload", "-w", "4", "-b", "0.0.0.0:5000", "app.main:app"]
