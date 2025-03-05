@@ -2,6 +2,7 @@ import requests
 import functools
 
 class Audit:
+    """This initi step would ideally be done by the agent to simplify things"""
     def __init__(self, deploymentType, deploymentName, deploymentVersion, deploymentEnvironment, serviceName):
         self.deploymentType = deploymentType
         self.deploymentName = deploymentName
