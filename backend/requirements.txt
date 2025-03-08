@@ -2,3 +2,6 @@ Flask
 gunicorn
 python-dotenv  
 watchfiles
+psycopg2
+flask-sqlalchemy
+Flask-Migrate
