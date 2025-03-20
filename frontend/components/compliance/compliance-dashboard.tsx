@@ -48,6 +48,8 @@ export default function ComplianceDashboard({
     { title: 'PCI DSS', reports: pciReports },
   ]);
 
+  localStorage.setItem('complianceRegulations', JSON.stringify(complianceRegulations));
+
   return (
     <div className="min-h-screen flex">
       {/* Main content */}
@@ -86,7 +88,7 @@ export default function ComplianceDashboard({
 
 interface ComplianceSectionProps {
   title: string;
-  reports: ComplianceReport[];
+  reports: Report[];
   className?: string;
   deploymentId: string;
 }
@@ -244,16 +246,16 @@ function CollapsibleComplianceSection({
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Link
+                    {/* <Link
                       href={`/deployments/${deploymentId}/complience/report/${report.id}`}
-                    >
+                    > */}
                       <Button
                         variant="secondary"
                         className="bg-[#5c5c5c] text-white hover:bg-[#5c5c5c]/90 h-6 px-4 py-0 rounded-full text-xs"
                       >
                         view report
                       </Button>
-                    </Link>
+                    {/* </Link> */}
                   </TableCell>
                 </TableRow>
               ))}
@@ -280,10 +282,10 @@ function getStatusClass(status: string): string {
 
 interface ComplianceRegulation {
   title: string;
-  reports: ComplianceReport[];
+  reports: Report[];
 }
 
-interface ComplianceReport {
+export interface Report {
   id: number;
   date: string;
   hash: string;
@@ -292,7 +294,7 @@ interface ComplianceReport {
   warningLevel?: number;
 }
 
-const gdprReports: ComplianceReport[] = [
+const gdprReports: Report[] = [
   {
     id: 1,
     date: 'Feb 26 2025',
@@ -332,7 +334,7 @@ const gdprReports: ComplianceReport[] = [
   },
 ];
 
-const ccpaReports: ComplianceReport[] = [
+const ccpaReports: Report[] = [
   {
     id: 6,
     date: 'Feb 26 2025',
@@ -359,7 +361,7 @@ const ccpaReports: ComplianceReport[] = [
 ];
 
 // Added more mock data for additional regulations
-const hipaaReports: ComplianceReport[] = [
+const hipaaReports: Report[] = [
   {
     id: 9,
     date: 'Mar 15 2025',
@@ -377,7 +379,7 @@ const hipaaReports: ComplianceReport[] = [
   },
 ];
 
-const soxReports: ComplianceReport[] = [
+const soxReports: Report[] = [
   {
     id: 11,
     date: 'Mar 10 2025',
@@ -395,7 +397,7 @@ const soxReports: ComplianceReport[] = [
   },
 ];
 
-const pciReports: ComplianceReport[] = [
+const pciReports: Report[] = [
   {
     id: 13,
     date: 'Mar 5 2025',

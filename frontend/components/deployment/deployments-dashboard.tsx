@@ -456,7 +456,7 @@ export default function DeploymentsDashboard() {
     },
   ]);
 
-  // localStorage.setItem('deployments', JSON.stringify(deployments));
+  localStorage.setItem('deployments', JSON.stringify(deployments));
 
   return (
     <div className="flex h-screen bg-[#F5F6FA]">
