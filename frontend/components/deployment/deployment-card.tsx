@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import ServiceCard from '../service/service-card';
-import type { Deployment } from './deployments-dashboard';
+import { Deployment } from '@/models/IDeployment';
 import Link from 'next/link';
 
 interface DeploymentCardProps {

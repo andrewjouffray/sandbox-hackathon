@@ -48,7 +48,10 @@ export default function ComplianceDashboard({
     { title: 'PCI DSS', reports: pciReports },
   ]);
 
-  localStorage.setItem('complianceRegulations', JSON.stringify(complianceRegulations));
+  localStorage.setItem(
+    'complianceRegulations',
+    JSON.stringify(complianceRegulations)
+  );
 
   return (
     <div className="min-h-screen flex">
@@ -246,16 +249,16 @@ function CollapsibleComplianceSection({
                     </div>
                   </TableCell>
                   <TableCell>
-                    {/* <Link
-                      href={`/deployments/${deploymentId}/complience/report/${report.id}`}
-                    > */}
+                    <Link
+                      href={`/deployments/${deploymentId}/compliance/report/${report.id}`}
+                    >
                       <Button
                         variant="secondary"
                         className="bg-[#5c5c5c] text-white hover:bg-[#5c5c5c]/90 h-6 px-4 py-0 rounded-full text-xs"
                       >
                         view report
                       </Button>
-                    {/* </Link> */}
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}
